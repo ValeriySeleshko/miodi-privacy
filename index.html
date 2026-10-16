@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy | Miodi</title>
-  <meta name="description" content="Official Privacy Policy for Miodi Android Application. 100% offline-first, no tracking, local storage only.">
+  <meta name="description" content="Official Privacy Policy for Miodi Android Application (com.miodi.app). Comprehensive, honest disclosures on local data, cloud backup, food database, and diagnostics.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -23,6 +23,8 @@
       --badge-border: #e2e8f0;
       --green: #10b981;
       --green-bg: #ecfdf5;
+      --blue: #2563eb;
+      --blue-bg: #eff6ff;
     }
 
     * {
@@ -165,7 +167,7 @@
     }
 
     h3 {
-      font-size: 1.1rem;
+      font-size: 1.08rem;
       font-weight: 600;
       margin: 20px 0 8px;
       color: var(--primary);
@@ -205,6 +207,16 @@
       margin: 20px 0;
       font-size: 0.95rem;
       color: #501633;
+    }
+
+    .box-info {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      padding: 16px 20px;
+      border-radius: 0 12px 12px 0;
+      margin: 20px 0;
+      font-size: 0.95rem;
+      color: #1e3a8a;
     }
 
     footer {
@@ -260,93 +272,120 @@
         <div class="highlight-item">
           <span class="highlight-icon">🔒</span>
           <div>
-            <div class="highlight-title">100% Offline-First</div>
-            <div class="highlight-desc">All tasks, habits, foods & notes stay strictly on your device.</div>
+            <div class="highlight-title">Offline-First Core</div>
+            <div class="highlight-desc">All personal notes, tasks, habits, and cycle records stay on your device.</div>
           </div>
         </div>
         <div class="highlight-item">
-          <span class="highlight-icon">📊</span>
+          <span class="highlight-icon">☁️</span>
           <div>
-            <div class="highlight-title">Zero Personal Tracking & Ads</div>
-            <div class="highlight-desc">No ad networks, no data brokers, only anonymous product analytics.</div>
+            <div class="highlight-title">Optional Google Drive</div>
+            <div class="highlight-desc">End-to-end user-controlled cloud backup via your personal Google account.</div>
           </div>
         </div>
         <div class="highlight-item">
           <span class="highlight-icon">📷</span>
           <div>
-            <div class="highlight-title">Camera: Local Only</div>
-            <div class="highlight-desc">Scans food barcodes on-device with ML Kit. Never stores photos.</div>
+            <div class="highlight-title">Photos & Scanner</div>
+            <div class="highlight-desc">Stores task photos and Polaroid moments locally; ML Kit scans food barcodes.</div>
           </div>
         </div>
         <div class="highlight-item">
-          <span class="highlight-icon">🛡️</span>
+          <span class="highlight-icon">📊</span>
           <div>
-            <div class="highlight-title">OS-Level Biometrics</div>
-            <div class="highlight-desc">Biometrics are processed by Android secure hardware enclave.</div>
+            <div class="highlight-title">Transparent Diagnostics</div>
+            <div class="highlight-desc">Anonymous crash logs & aggregated metrics via Firebase. Zero ads.</div>
           </div>
         </div>
       </div>
 
       <div class="box-callout">
-        <strong>Core Commitment:</strong> Miodi is built as an offline-first private daily planner. We do not require account registration, do not run user-tracking servers, and never sell or transfer your personal data.
+        <strong>Core Philosophy:</strong> Miodi is created as a cozy personal life journal and planner. We do not require compulsory registration, do not run tracking servers, and never sell or transfer your personal content to data brokers or third parties.
       </div>
 
-      <h2>1. Overview and Philosophy</h2>
-      <p>Miodi ("the Application") is an offline-first personal bullet journal, habit tracker, and lifestyle organizer developed by an independent developer. We believe your private thoughts, schedule, health, and budget belong strictly to you.</p>
+      <h2>1. Overview and Core Architecture</h2>
+      <p>Miodi ("the Application", package <code>com.miodi.app</code>) is an offline-first daily organizer, habit tracker, and personal bullet journal. We believe your private thoughts, schedules, nutrition, and health entries belong solely to you.</p>
       <ul>
-        <li><strong>No User Account:</strong> You can use all features of Miodi without providing an email, username, phone number, or password.</li>
-        <li><strong>Local Data Storage:</strong> All content created in the application (notes, tasks, calendar events, habits, pet progress, meals, finances, and menstrual cycle entries) is stored exclusively in a local SQLite/Room database in your device's private storage.</li>
-        <li><strong>No Proprietary Cloud:</strong> We do not operate remote servers to store or analyze your personal records.</li>
+        <li><strong>No Required User Registration:</strong> You can use all core features of Miodi without creating an account or providing an email address, name, or phone number.</li>
+        <li><strong>Local Database:</strong> All user-generated content (notes, tasks, habit logs, meals, finances, pet companion progress, and menstrual cycle entries) is saved directly into an isolated SQLite/Room database in your device's private app sandbox.</li>
+        <li><strong>No Proprietary Tracking Cloud:</strong> We do not operate remote servers to inspect, profile, or monetize your journal entries.</li>
       </ul>
 
-      <h2>2. Permissions and Sensitive Data Disclosures</h2>
-      <p>To deliver its native functionality, Miodi requests specific permissions in compliance with Google Play Store policies:</p>
+      <h2>2. Photos, Media Storage, and Camera</h2>
 
-      <h3>2.1. Camera Permission <span class="badge-pill">android.permission.CAMERA</span></h3>
-      <p><strong>Purpose:</strong> The camera is used solely and optionally within the Nutrition module to scan product barcodes (EAN-13, UPC) for instant nutritional lookups.</p>
-      <p><strong>Data Processing:</strong> Barcode detection is executed locally on your device in real time using Google ML Kit Vision. Video frames are analyzed in volatile RAM and immediately discarded. <em>No photos, videos, or camera images are ever captured, saved to disk, or sent across the network.</em></p>
+      <h3>2.1. Task Photos & Polaroid Moments</h3>
+      <p><strong>Local Storage:</strong> When you attach photos to tasks or create keepsake snapshots in the "Moments" module (including Polaroid card templates), these images are processed and stored securely within the application's isolated local storage (<code>Context.filesDir</code>).</p>
+      <p><strong>Cloud Backup Inclusion:</strong> If you perform a manual JSON backup or enable automatic Google Drive sync, task photos and Moment snapshots are converted to compressed WebP data (base64) and included directly inside your private backup archive. They are <em>never</em> published to any public server or accessible to the developer.</p>
 
-      <h3>2.2. Biometric Authentication <span class="badge-pill">android.permission.USE_BIOMETRIC</span></h3>
-      <p><strong>Purpose:</strong> Allows you to optionally lock the application using your fingerprint, face unlock, or device PIN.</p>
-      <p><strong>Data Processing:</strong> Biometric verification is managed directly by the Android operating system hardware keystore via the official <code>BiometricPrompt</code> API. Miodi never sees, reads, collects, or stores raw biometric measurements.</p>
+      <h3>2.2. Barcode Camera Scanning <span class="badge-pill">android.permission.CAMERA</span></h3>
+      <p><strong>Purpose:</strong> The camera is used optionally within the Nutrition module to scan food product barcodes (EAN-13, UPC).</p>
+      <p><strong>On-Device Processing:</strong> Real-time barcode detection is performed entirely on your device using Google ML Kit Vision. Live camera frames are analyzed in volatile memory (RAM) and immediately discarded. <em>No camera frames from barcode scanning are ever recorded or uploaded.</em></p>
 
-      <h3>2.3. Health, Wellness, and Cycle Data</h3>
-      <p><strong>Purpose:</strong> The application includes an optional Female Cycle Tracker and Calorie/Macro Counter for personal daily self-organization.</p>
-      <p><strong>Compliance:</strong> In strict alignment with Google Play’s Reproductive Health and Health Data policies, all cycle dates, symptoms, notes, and nutritional logs remain strictly on the user's local device. They are never shared with advertising networks, third-party analytics providers, or remote servers.</p>
-      <p><em>Disclaimer: Miodi is a lifestyle organization tool and is not a certified medical device. It does not provide medical diagnoses, treatment advice, or contraception prediction.</em></p>
-
-      <h3>2.4. Financial and Expense Records</h3>
-      <p><strong>Purpose:</strong> The Finance module allows manual entry of daily expenses, incomes, and categories for personal budgeting.</p>
-      <p><strong>Data Handling:</strong> Miodi has no connection to banks, credit cards, or payment gateways. All financial numbers are manually entered numbers stored exclusively in the local database.</p>
-
-      <h3>2.5. Notifications and Alarms <span class="badge-pill">POST_NOTIFICATIONS</span> <span class="badge-pill">SCHEDULE_EXACT_ALARM</span></h3>
-      <p><strong>Purpose:</strong> Used solely to deliver local reminder notifications for tasks and habits you have scheduled.</p>
-      <p><strong>Data Handling:</strong> Reminders are handled on-device by Android’s <code>AlarmManager</code> and <code>NotificationManager</code>. No remote push notifications or external tracking services are used.</p>
-
-      <h3>2.6. Internet Access <span class="badge-pill">android.permission.INTERNET</span></h3>
-      <p><strong>Purpose:</strong> The app contains a built-in preloaded database of 89,000+ foods. If a scanned barcode is not found offline, the app performs a fallback query to the open public <strong>Open Food Facts</strong> database.</p>
-      <p><strong>Data Transmitted:</strong> Only the anonymous numeric barcode string is sent. No personal identifier, device ID, location, or user profile is ever attached or transmitted.</p>
-
-      <h2>3. Data Backup, Export, and Deletion</h2>
+      <h2>3. Google Sign-In & Google Drive Cloud Backup</h2>
+      <p>To prevent data loss if your device is broken, lost, or replaced, Miodi offers an <strong>optional Google Drive Cloud Backup</strong> feature:</p>
       <ul>
-        <li><strong>User-Controlled Backups:</strong> You can export an encrypted/structured JSON backup of your database at any time using Android's Storage Access Framework (SAF). You choose where to save this file (e.g. locally or on your own Google Drive).</li>
-        <li><strong>Complete Deletion:</strong> You can wipe all data at any moment through <em>Settings &rarr; Reset Data to Defaults</em>. Uninstalling the app permanently deletes all local data from your device.</li>
+        <li><strong>OAuth Authentication:</strong> You can sign in using official Google Sign-In (<code>GoogleSignInClient</code>). Miodi requests only your email address (to show your connection status in settings) and the dedicated app data scope: <code>https://www.googleapis.com/auth/drive.appdata</code>.</li>
+        <li><strong>Isolated App-Data Folder:</strong> Backups are saved strictly inside the hidden, private application folder (<code>appDataFolder</code>) on your own personal Google Drive. Miodi <strong>cannot</strong> read, modify, or delete any of your other files, photos, or documents on Google Drive.</li>
+        <li><strong>No Developer Access:</strong> Your backup file (<code>miodi_appdata_backup.json</code>) is transferred directly between your device and Google's servers over HTTPS. The developer never has access to your Google account or cloud backups.</li>
       </ul>
 
-      <h2>4. Third-Party Services, Analytics and Advertising</h2>
+      <h2>4. Analytics, Crash Reporting, and Advertising</h2>
       <ul>
-        <li><strong>No Advertising:</strong> Miodi contains no third-party advertising SDKs or ad networks (no AdMob, Unity Ads, AppLovin).</li>
-        <li><strong>Anonymous Product Analytics:</strong> To improve app stability, troubleshoot crashes, and understand feature popularity (such as module usage, sticker pack popularity, and aggregate counts of tasks/habits), Miodi uses Google Analytics for Firebase. All collected telemetry is strictly <strong>anonymized and aggregated</strong>. We <strong>never</strong> collect, view, or transmit personal notes, task or habit titles, financial amounts, photos, or reproductive health entries. Data is encrypted in transit and is never linked to individual user identities.</li>
+        <li><strong>Zero Advertising:</strong> Miodi contains no advertising SDKs or ad networks (no AdMob, Unity Ads, AppLovin, etc.).</li>
+        <li><strong>Firebase Crashlytics:</strong> To diagnose application crashes, bugs, and Application Not Responding (ANR) events, Miodi uses Google Firebase Crashlytics. When a crash occurs, technical logs containing the crash stack trace, operating system version, and device model are sent to help the developer fix bugs. No personal journal content is included.</li>
+        <li><strong>Firebase Analytics:</strong> To understand general feature adoption and improve the app, Miodi logs anonymous, aggregated telemetry via Google Analytics for Firebase. This includes screen visits, sticker pack interactions, and high-level numeric metrics (e.g., whether a user has 1–3 or 4–7 active habits, without names).</li>
+        <li><strong>Strict PII Guarantee:</strong> Firebase telemetry <strong>never</strong> collects, reads, or transmits personal note texts, task titles, financial values, photos, or reproductive health data.</li>
       </ul>
 
-      <h2>5. Children’s Privacy (COPPA / GDPR)</h2>
-      <p>Miodi is not directed to children under the age of 13. Since Miodi does not collect or transmit any personal data from any user, it does not knowingly collect information from children.</p>
+      <h2>5. Nutrition Database: Open Food Facts & Supabase</h2>
+      <p>Miodi includes a built-in offline database of 89,000+ foods. To look up items not present in the offline catalog, the app uses network queries:</p>
+      <ul>
+        <li><strong>Open Food Facts:</strong> If a scanned barcode is not found locally, the app queries the public Open Food Facts open-source database. Only the numeric barcode or text search query is sent.</li>
+        <li><strong>Crowdsourced Food Catalog (Supabase):</strong> To enhance the community food catalog, Miodi connects to a Supabase database (<code>community_foods</code>):
+          <ul>
+            <li>Allows searching and barcode lookup for products contributed by the community.</li>
+            <li>When you add or edit a custom food with valid nutritional values (calories, proteins, fats, carbs), the app may contribute the product info (barcode, food name, brand, nutrition facts, along with the device's two-letter country code and language locale) to the community database so other users can find it.</li>
+            <li><strong>No User Association:</strong> No personal profile, email, device ID, meal logs, or timestamps are sent to Supabase. Only general product nutrition data is contributed.</li>
+          </ul>
+        </li>
+      </ul>
 
-      <h2>6. Contact Us</h2>
+      <h2>6. Sensitive Health, Cycle, and Financial Data</h2>
+      <h3>6.1. Female Cycle Tracker</h3>
+      <p>In accordance with Google Play's Reproductive Health policies, all cycle dates, symptoms, moods, and notes are stored strictly in the local device database. They are never transmitted to analytics tools, advertising networks, or third-party servers.</p>
+      <p><em>Disclaimer: Miodi is a personal lifestyle organization tool and is not a certified medical device. It does not provide medical diagnoses or contraceptive advice.</em></p>
+
+      <h3>6.2. Financial Records</h3>
+      <p>The Finance module is a manual budgeting calculator. Miodi does not link to bank accounts, debit/credit cards, or payment APIs. All amounts are numbers entered manually and kept locally.</p>
+
+      <h2>7. Device Permissions Overview</h2>
+      <ul>
+        <li><code>android.permission.CAMERA</code>: Required for on-device barcode scanning and optional photo capture for tasks and Moments.</li>
+        <li><code>android.permission.USE_BIOMETRIC</code>: Enables optional app lock via system biometric prompt (handled securely by the Android OS Keystore).</li>
+        <li><code>android.permission.POST_NOTIFICATIONS</code> &amp; <code>SCHEDULE_EXACT_ALARM</code>: Delivers on-device reminder alerts for scheduled tasks and habits.</li>
+        <li><code>android.permission.INTERNET</code>: Powers optional Google Drive cloud sync, food database queries (Open Food Facts / Supabase), and anonymous crash reports.</li>
+      </ul>
+
+      <h2>8. Data Retention, Backup, and Deletion</h2>
+      <div class="box-info">
+        <strong>Important Notice on Data Deletion:</strong> To safeguard user journals against accidental permanent loss, the single-tap "Reset Data to Defaults" button was removed from the in-app settings interface.
+      </div>
+      <ul>
+        <li><strong>Local Data Deletion:</strong> You can permanently wipe all local application data, databases, and photos at any time via Android System Settings: <em>Settings &rarr; Apps &rarr; Miodi &rarr; Storage & Cache &rarr; Clear Storage / Clear All Data</em>, or by simply uninstalling the application.</li>
+        <li><strong>Cloud Backup Management:</strong> You can disconnect your Google account and disable auto-upload at any time in Miodi's Settings. To delete the hidden backup file from your Google Drive: open <em>Google Drive in a web browser &rarr; Settings (gear icon) &rarr; Manage Apps &rarr; Miodi &rarr; Options &rarr; Delete hidden app data</em>.</li>
+        <li><strong>Manual Backup:</strong> You can export and import an encrypted/structured JSON backup file at any time using Android's Storage Access Framework.</li>
+      </ul>
+
+      <h2>9. Children’s Privacy (COPPA / GDPR)</h2>
+      <p>Miodi is not directed toward children under the age of 13. Since Miodi does not collect personally identifiable information from any user, it does not knowingly collect information from children.</p>
+
+      <h2>10. Contact Us</h2>
       <p>If you have any questions or feedback regarding this Privacy Policy, please contact the developer at:</p>
       <ul>
         <li><strong>Email:</strong> <a href="mailto:valer4ikk54@gmail.com">valer4ikk54@gmail.com</a></li>
-        <li><strong>App:</strong> Miodi (Package: <code>com.miodi.app</code>)</li>
+        <li><strong>Application:</strong> Miodi (Package: <code>com.miodi.app</code>)</li>
+        <li><strong>GitHub Repository:</strong> <a href="https://github.com/ValeriySeleshko/Miodi" target="_blank" rel="noopener">github.com/ValeriySeleshko/Miodi</a></li>
+        <li><strong>Hosted Policy:</strong> <a href="https://valeriyseleshko.github.io/miodi-privacy/" target="_blank" rel="noopener">valeriyseleshko.github.io/miodi-privacy</a></li>
       </ul>
     </div>
 
@@ -356,93 +395,120 @@
         <div class="highlight-item">
           <span class="highlight-icon">🔒</span>
           <div>
-            <div class="highlight-title">100% Offline-First</div>
-            <div class="highlight-desc">Все задачи, привычки, питание и заметки хранятся только на телефоне.</div>
+            <div class="highlight-title">Офлайн-основа</div>
+            <div class="highlight-desc">Все личные заметки, задачи, привычки и цикл хранятся на вашем телефоне.</div>
           </div>
         </div>
         <div class="highlight-item">
-          <span class="highlight-icon">📊</span>
+          <span class="highlight-icon">☁️</span>
           <div>
-            <div class="highlight-title">Приватность и без рекламы</div>
-            <div class="highlight-desc">Без рекламы и сбора личных данных. Только анонимная продуктовая статистика.</div>
+            <div class="highlight-title">Google Диск (по желанию)</div>
+            <div class="highlight-desc">Бэкап в изолированную личную папку вашего личного Google-аккаунта.</div>
           </div>
         </div>
         <div class="highlight-item">
           <span class="highlight-icon">📷</span>
           <div>
-            <div class="highlight-title">Камера: строго локально</div>
-            <div class="highlight-desc">Сканирует штрихкоды еды на устройстве через ML Kit. Не сохраняет фото.</div>
+            <div class="highlight-title">Фото и сканер</div>
+            <div class="highlight-desc">Фото задач и «Моменты» хранятся локально; ML Kit сканирует штрихкоды.</div>
           </div>
         </div>
         <div class="highlight-item">
-          <span class="highlight-icon">🛡️</span>
+          <span class="highlight-icon">📊</span>
           <div>
-            <div class="highlight-title">Биометрия уровня ОС</div>
-            <div class="highlight-desc">Отпечаток и PIN обрабатываются аппаратным модулем Android.</div>
+            <div class="highlight-title">Честная диагностика</div>
+            <div class="highlight-desc">Анонимные отчеты о сбоях и агрегированные метрики Firebase. Без рекламы.</div>
           </div>
         </div>
       </div>
 
       <div class="box-callout">
-        <strong>Главное обязательство:</strong> Miodi спроектирован по принципу полной автономности (Offline-First). Мы не требуем регистрации аккаунтов, не держим серверов слежки и категорически не передаем и не продаем ваши личные данные третьим лицам.
+        <strong>Главное обязательство:</strong> Miodi создан как уютный личный дневник и ежедневник. Мы не требуем принудительной регистрации аккаунтов, не держим серверов слежки и категорически не продаем и не передаем ваши личные данные третьим лицам.
       </div>
 
-      <h2>1. Общие положения и философия</h2>
-      <p>Приложение Miodi («Приложение») — это автономный персональный ежедневник, трекер привычек и органайзер образа жизни, разработанный независимым разработчиком. Мы убеждены, что ваши личные планы, мысли, здоровье и бюджет должны принадлежать исключительно вам.</p>
+      <h2>1. Общие положения и архитектура</h2>
+      <p>Приложение Miodi («Приложение», идентификатор пакета <code>com.miodi.app</code>) — это автономный персональный ежедневник, трекер привычек и органайзер образа жизни. Мы убеждены, что ваши личные планы, мысли, питание, финансы и здоровье принадлежат исключительно вам.</p>
       <ul>
-        <li><strong>Без создания аккаунтов:</strong> Вам не нужно вводить email, телефон, логин или пароль для использования всех возможностей Miodi.</li>
-        <li><strong>Локальное хранение:</strong> Все данные (задачи, заметки, события календаря, привычки, состояние питомца, питание, финансы и данные женского цикла) сохраняются строго в локальной изолированной базе данных SQLite/Room на вашем телефоне.</li>
-        <li><strong>Без сторонних серверов:</strong> Мы не содержим удаленных серверов для сбора или обработки вашей конфиденциальной информации.</li>
+        <li><strong>Без обязательной регистрации:</strong> Всеми основными функциями Miodi можно пользоваться без ввода email, логина, телефона или создания аккаунта.</li>
+        <li><strong>Локальная база данных:</strong> Все создаваемые данные (заметки, задачи, привычки, приемы пищи, личные финансы, состояние питомца Мейни и записи женского цикла) сохраняются в изолированной локальной базе данных SQLite/Room во внутреннем хранилище вашего устройства.</li>
+        <li><strong>Без собственных серверов слежки:</strong> Мы не содержим удаленных серверов для сбора, профилирования или монетизации ваших личных записей.</li>
       </ul>
 
-      <h2>2. Разрешения и конфиденциальные данные</h2>
-      <p>Для выполнения своих функций приложение запрашивает определенные разрешения в строгом соответствии с политиками безопасности Google Play:</p>
+      <h2>2. Фотографии, медиафайлы и доступ к камере</h2>
 
-      <h3>2.1. Доступ к камере <span class="badge-pill">android.permission.CAMERA</span></h3>
-      <p><strong>Назначение:</strong> Камера используется исключительно по желанию пользователя в модуле «Питание» для быстрого сканирования штрихкодов продуктов (EAN-13, UPC).</p>
-      <p><strong>Обработка данных:</strong> Распознавание штрихкода происходит мгновенно на самом устройстве с помощью библиотеки Google ML Kit Vision. Кадры с камеры обрабатываются в оперативной памяти и сразу удаляются. <em>Приложение не делает фотоснимков, не записывает видео и не передает изображение по сети.</em></p>
+      <h3>2.1. Фотографии к задачам и полароид-снимки «Моментов»</h3>
+      <p><strong>Локальное хранение:</strong> Пользователь может прикреплять фотографии к задачам и создавать памятные полароид-снимки в модуле «Моменты». Все эти изображения обрабатываются и сохраняются в изолированном внутреннем каталоге приложения на устройстве (<code>Context.filesDir</code>).</p>
+      <p><strong>Включение в резервную копию:</strong> При ручном экспорте базы данных в JSON или автоматической синхронизации с Google Диском фотографии задач и карточки «Моментов» сжимаются в формат WebP (в кодировке base64) и выгружаются в составе единого файла бэкапа. Они <em>никогда</em> не публикуются в открытом доступе и недоступны разработчику.</p>
 
-      <h3>2.2. Биометрическая аутентификация <span class="badge-pill">android.permission.USE_BIOMETRIC</span></h3>
-      <p><strong>Назначение:</strong> Позволяет защитить вход в блокнот с помощью отпечатка пальца, сканирования лица или системного PIN-кода.</p>
-      <p><strong>Обработка данных:</strong> Биометрическая проверка выполняется операционной системой Android через стандартный компонент <code>BiometricPrompt</code>. Miodi не имеет доступа к вашим биометрическим образцам и получает от системы только подтверждение («Успешно / Не успешно»).</p>
+      <h3>2.2. Сканер штрихкодов в «Питании» <span class="badge-pill">android.permission.CAMERA</span></h3>
+      <p><strong>Назначение:</strong> Камера используется опционально в модуле питания для сканирования штрихкодов продуктов (EAN-13, UPC).</p>
+      <p><strong>Обработка на устройстве:</strong> Распознавание штрихкодов выполняется локально на процессоре вашего устройства с помощью Google ML Kit Vision. Кадры видеопотока анализируются в оперативной памяти и сразу удаляются. <em>Видеокадры сканирования никогда не сохраняются на диск и никуда не передаются.</em></p>
 
-      <h3>2.3. Данные о здоровье, питании и женском цикле</h3>
-      <p><strong>Назначение:</strong> В приложении есть женский календарь цикла и счетчик калорий для личной самоорганизации.</p>
-      <p><strong>Безопасность:</strong> В полном соответствии с политиками Google Play в отношении репродуктивного здоровья, все записи цикла, симптомы, приемы пищи и калории хранятся <strong>исключительно на вашем устройстве</strong>. Они никогда не передаются рекламным сетям, аналитикам или сторонним сервисам.</p>
-      <p><em>Отказ от ответственности: Miodi является инструментом самоорганизации и не является сертифицированным медицинским изделием. Приложение не ставит диагнозов и не может служить средством контрацепции.</em></p>
-
-      <h3>2.4. Финансовые данные</h3>
-      <p><strong>Назначение:</strong> Модуль «Финансы» служит для ведения личного учета расходов и доходов.</p>
-      <p><strong>Обработка:</strong> Miodi не подключается к банкам, картам или платежным системам. Все суммы — это текстовые цифры, вводимые вручную и сохраняемые только на вашем телефоне.</p>
-
-      <h3>2.5. Уведомления и напоминания <span class="badge-pill">POST_NOTIFICATIONS</span> <span class="badge-pill">SCHEDULE_EXACT_ALARM</span></h3>
-      <p><strong>Назначение:</strong> Используются для локального срабатывания напоминаний о делах и привычках, назначенных пользователем на определенное время.</p>
-      <p><strong>Обработка:</strong> Срабатывание происходит через встроенные службы Android (<code>AlarmManager</code> и <code>NotificationManager</code>) без привлечения сторонних серверов.</p>
-
-      <h3>2.6. Доступ в интернет <span class="badge-pill">android.permission.INTERNET</span></h3>
-      <p><strong>Назначение:</strong> В приложение вшита офлайн-база продуктов. Если редкого товара в ней нет, приложение может отправить запрос в открытую онлайн-базу <strong>Open Food Facts</strong>.</p>
-      <p><strong>Передаваемые данные:</strong> Передается только анонимный номер штрихкода. Никакие персональные данные, идентификаторы устройства, рекламные ID или геолокация не передаются.</p>
-
-      <h2>3. Резервное копирование и удаление данных</h2>
+      <h2>3. Вход через Google и резервное копирование в Google Диск</h2>
+      <p>Чтобы защитить записи от потери при поломке или смене телефона, в Miodi реализована <strong>опциональная синхронизация с Google Диском</strong>:</p>
       <ul>
-        <li><strong>Резервные копии:</strong> Вы можете в любой момент выгрузить резервную копию базы данных в файл JSON через системный диалог Android Storage Access Framework и сохранить её туда, куда посчитаете нужным.</li>
-        <li><strong>Полное удаление:</strong> В настройках доступна кнопка «Сбросить данные до начальных», которая мгновенно очищает базу данных. Удаление приложения с телефона полностью и безвозвратно стирает все связанные с ним локальные данные.</li>
+        <li><strong>Авторизация Google Sign-In:</strong> Вход осуществляется через официальный Google Sign-In (<code>GoogleSignInClient</code>). Приложение запрашивает только ваш email (для отображения статуса подключения в настройках) и специальную область доступа: <code>https://www.googleapis.com/auth/drive.appdata</code>.</li>
+        <li><strong>Изолированная папка приложения (appDataFolder):</strong> Файл резервной копии (<code>miodi_appdata_backup.json</code>) сохраняется в скрытую изолированную системную папку приложения на вашем личном Google Диске. Miodi <strong>не имеет доступа</strong> к другим вашим файлам, фото или документам на Google Диске.</li>
+        <li><strong>Прямой обмен:</strong> Передача файла резервной копии происходит напрямую между вашим телефоном и серверами Google по зашифрованному протоколу HTTPS. Разработчик приложения не имеет доступа к вашему аккаунту и вашим облачным копиям.</li>
       </ul>
 
-      <h2>4. Сторонние сервисы, аналитика и реклама</h2>
+      <h2>4. Аналитика, отчеты о сбоях и отсутствие рекламы</h2>
       <ul>
-        <li>В Miodi <strong>полностью отсутствует реклама</strong> (нет Google AdMob, Unity Ads и т.д.).</li>
-        <li><strong>Анонимная продуктовая аналитика:</strong> Для анализа стабильности приложения, устранения возможных сбоев и понимания востребованности функций (посещаемость модулей, использование стикеров, общее количество задач и привычек) используется Google Analytics for Firebase. Все собираемые метрики являются <strong>строго обезличенными и агрегированными</strong>. Мы <strong>никогда не собираем, не просматриваем и не передаем</strong> названия ваших задач, привычек или заметок, финансовые суммы, фотографии, а также данные женского календаря и здоровья. Данные шифруются при передаче и не привязаны к вашей личности.</li>
+        <li><strong>Полное отсутствие рекламы:</strong> В Miodi нет рекламных SDK, баннеров и межстраничных сетей (нет Google AdMob, Unity Ads, AppLovin и т.д.).</li>
+        <li><strong>Firebase Crashlytics:</strong> Для выявления фатальных сбоев, зависаний (ANR) и программных ошибок Miodi использует Google Firebase Crashlytics. При возникновении ошибки отправляется обезличенный технический отчет (стек вызова ошибки, модель устройства, версия Android), позволяющий разработчику быстро выпустить исправление. Личные тексты и записи дневника в отчеты никогда не попадают.</li>
+        <li><strong>Firebase Analytics:</strong> Для оценки востребованности функций Miodi собирает обезличенные агрегированные события через Google Analytics for Firebase (просмотры разделов, использование наборов стикеров, обобщенный диапазон количества задач и привычек — например, категория «1–3» или «4–7», без названий и текста).</li>
+        <li><strong>Строгие гарантии конфиденциальности:</strong> Аналитические SDK <strong>никогда не собирают и не передают</strong> тексты заметок, названия дел, суммы финансов, фотографии или записи женского цикла.</li>
       </ul>
 
-      <h2>5. Детская конфиденциальность (COPPA / GDPR)</h2>
-      <p>Приложение не предназначено специально для детей младше 13 лет. Поскольку Miodi не собирает персональных данных ни у каких категорий пользователей, сбор данных детей также исключен.</p>
+      <h2>5. База продуктов: Open Food Facts и Supabase</h2>
+      <p>В приложение вшита автономная база из 89,000+ продуктов. Для поиска товаров, отсутствующих в локальной базе, приложение обращается к внешним сервисам:</p>
+      <ul>
+        <li><strong>Open Food Facts:</strong> Если штрихкод не найден локально, приложение может выполнить запрос к открытой базе данных Open Food Facts. Передается только цифровой штрихкод или поисковая строка.</li>
+        <li><strong>Краудсорсинговая база продуктов (Supabase):</strong> Для расширения каталога Miodi использует базу Supabase (таблица <code>community_foods</code>):
+          <ul>
+            <li>Позволяет находить товары по штрихкоду и названию среди проверенных сообществом продуктов.</li>
+            <li>Когда пользователь добавляет или сохраняет продукт с корректными значениями КБЖУ (калории, белки, жиры, углеводы), приложение может автоматически отправить информацию о товаре (штрихкод, название, бренд, пищевую ценность, а также код страны и язык устройства) в общую базу данных сообщества, чтобы облегчить поиск другим пользователям.</li>
+            <li><strong>Без привязки к пользователю:</strong> В Supabase <strong>не передаются</strong> никакие личные данные пользователя (аккаунт, email, идентификатор устройства, история приемов пищи или время питания). Передаются исключительно справочные данные о самом продукте питания.</li>
+          </ul>
+        </li>
+      </ul>
 
-      <h2>6. Контактные данные</h2>
-      <p>Если у вас возникли вопросы по поводу данной Политики конфиденциальности, вы можете связаться с разработчиком:</p>
+      <h2>6. Конфиденциальные данные: здоровье, цикл и финансы</h2>
+      <h3>6.1. Женский календарь цикла</h3>
+      <p>В соответствии с политиками Google Play в отношении репродуктивного здоровья, все даты цикла, симптомы, самочувствие и заметки хранятся <strong>строго на вашем устройстве</strong> (и в личном бэкапе при его создании). Они никогда не передаются рекламным сетям, аналитическим платформам или третьим лицам.</p>
+      <p><em>Отказ от медицинской ответственности: Miodi является инструментом личной самоорганизации и не является сертифицированным медицинским изделием. Приложение не ставит диагнозов и не может служить средством контрацепции.</em></p>
+
+      <h3>6.2. Финансовые записи</h3>
+      <p>Модуль «Финансы» служит для ведения личного учета расходов и доходов. Miodi не подключается к банкам, картам или платежным шлюзам. Все суммы — это текстовые цифры, вводимые вручную и сохраняемые локально.</p>
+
+      <h2>7. Разрешения операционной системы</h2>
+      <ul>
+        <li><code>android.permission.CAMERA</code>: Доступ к камере для сканирования штрихкодов продуктов и создания фотоснимков к задачам и «Моментам».</li>
+        <li><code>android.permission.USE_BIOMETRIC</code>: Защита входа в приложение отпечатком пальца или Face Unlock (обрабатывается криптографическим модулем Android).</li>
+        <li><code>android.permission.POST_NOTIFICATIONS</code> и <code>SCHEDULE_EXACT_ALARM</code>: Локальные уведомления-напоминания о запланированных делах и привычках.</li>
+        <li><code>android.permission.INTERNET</code>: Синхронизация бэкапа с Google Диском, поиск продуктов питания (Open Food Facts / Supabase) и получение отчетов об ошибках через Crashlytics.</li>
+      </ul>
+
+      <h2>8. Хранение, удаление данных и управление копиями</h2>
+      <div class="box-info">
+        <strong>Важная информация об удалении данных:</strong> Чтобы защитить пользователей от случайного безвозвратного уничтожения личных дневников и записей, небезопасная кнопка сброса «в один клик» («Сбросить данные до начальных») была намеренно удалена из интерфейса настроек.
+      </div>
+      <ul>
+        <li><strong>Полное локальное удаление данных:</strong> Вы можете в любой момент безвозвратно удалить все локальные данные приложения, базу и фотографии через меню настроек Android: <em>Настройки телефона &rarr; Приложения &rarr; Miodi &rarr; Хранилище и кэш &rarr; Очистить хранилище / Стереть все данные</em>, либо просто удалив приложение с телефона.</li>
+        <li><strong>Управление облачной копией (Google Диск):</strong> Вы можете в любой момент нажать «Выйти» в секции Google Диска в приложении и отключить автовыгрузку. Для полного удаления скрытого файла бэкапа из своего Google Диска: откройте <em>Google Диск в браузере на компьютере или телефоне &rarr; Настройки (шестеренка) &rarr; Управление приложениями &rarr; Miodi &rarr; Опции &rarr; Удалить скрытые данные приложения</em>.</li>
+        <li><strong>Ручной экспорт/импорт:</strong> Вы можете в любой момент выгрузить резервную копию базы данных в структурированный JSON-файл через системный проводник Android (Storage Access Framework) и сохранить её на любом носителе.</li>
+      </ul>
+
+      <h2>9. Детская конфиденциальность (COPPA / GDPR)</h2>
+      <p>Miodi не предназначено специально для детей младше 13 лет. Поскольку Miodi не осуществляет целенаправленный сбор персональных данных пользователей, сбор данных детей также исключен.</p>
+
+      <h2>10. Контактные данные</h2>
+      <p>Если у вас возникли вопросы или пожелания по поводу данной Политики конфиденциальности, вы можете связаться с разработчиком:</p>
       <ul>
         <li><strong>Email:</strong> <a href="mailto:valer4ikk54@gmail.com">valer4ikk54@gmail.com</a></li>
         <li><strong>Приложение:</strong> Miodi (Пакет: <code>com.miodi.app</code>)</li>
+        <li><strong>Репозиторий GitHub:</strong> <a href="https://github.com/ValeriySeleshko/Miodi" target="_blank" rel="noopener">github.com/ValeriySeleshko/Miodi</a></li>
+        <li><strong>Веб-страница политики:</strong> <a href="https://valeriyseleshko.github.io/miodi-privacy/" target="_blank" rel="noopener">valeriyseleshko.github.io/miodi-privacy</a></li>
       </ul>
     </div>
 
