@@ -246,7 +246,7 @@
         <span>📖</span> Miodi
       </div>
       <h1 id="page-title">Privacy Policy</h1>
-      <p class="meta" id="page-meta">Last updated: October 4, 2026 • Application: com.miodi.app</p>
+      <p class="meta" id="page-meta">Last updated: October 16, 2026 • Application: com.miodi.app</p>
 
       <div class="lang-switcher">
         <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">🇬🇧 English</button>
@@ -265,10 +265,10 @@
           </div>
         </div>
         <div class="highlight-item">
-          <span class="highlight-icon">🚫</span>
+          <span class="highlight-icon">📊</span>
           <div>
-            <div class="highlight-title">Zero Tracking & Ads</div>
-            <div class="highlight-desc">No external analytics, no ad networks, no data brokers.</div>
+            <div class="highlight-title">Zero Personal Tracking & Ads</div>
+            <div class="highlight-desc">No ad networks, no data brokers, only anonymous product analytics.</div>
           </div>
         </div>
         <div class="highlight-item">
@@ -333,10 +333,10 @@
         <li><strong>Complete Deletion:</strong> You can wipe all data at any moment through <em>Settings &rarr; Reset Data to Defaults</em>. Uninstalling the app permanently deletes all local data from your device.</li>
       </ul>
 
-      <h2>4. Third-Party Libraries and Advertisements</h2>
+      <h2>4. Third-Party Services, Analytics and Advertising</h2>
       <ul>
-        <li><strong>No Advertising:</strong> Miodi contains no advertising SDKs (no AdMob, Unity, AppLovin).</li>
-        <li><strong>No Analytics SDKs:</strong> Miodi contains no tracking SDKs (no Firebase Analytics, Facebook SDK, AppsFlyer, Mixpanel).</li>
+        <li><strong>No Advertising:</strong> Miodi contains no third-party advertising SDKs or ad networks (no AdMob, Unity Ads, AppLovin).</li>
+        <li><strong>Anonymous Product Analytics:</strong> To improve app stability, troubleshoot crashes, and understand feature popularity (such as module usage, sticker pack popularity, and aggregate counts of tasks/habits), Miodi uses Google Analytics for Firebase. All collected telemetry is strictly <strong>anonymized and aggregated</strong>. We <strong>never</strong> collect, view, or transmit personal notes, task or habit titles, financial amounts, photos, or reproductive health entries. Data is encrypted in transit and is never linked to individual user identities.</li>
       </ul>
 
       <h2>5. Children’s Privacy (COPPA / GDPR)</h2>
@@ -361,10 +361,10 @@
           </div>
         </div>
         <div class="highlight-item">
-          <span class="highlight-icon">🚫</span>
+          <span class="highlight-icon">📊</span>
           <div>
-            <div class="highlight-title">Без слежки и рекламы</div>
-            <div class="highlight-desc">Никаких внешних аналитик, рекламных сетей и трекеров.</div>
+            <div class="highlight-title">Приватность и без рекламы</div>
+            <div class="highlight-desc">Без рекламы и сбора личных данных. Только анонимная продуктовая статистика.</div>
           </div>
         </div>
         <div class="highlight-item">
@@ -429,10 +429,10 @@
         <li><strong>Полное удаление:</strong> В настройках доступна кнопка «Сбросить данные до начальных», которая мгновенно очищает базу данных. Удаление приложения с телефона полностью и безвозвратно стирает все связанные с ним локальные данные.</li>
       </ul>
 
-      <h2>4. Сторонние сервисы и реклама</h2>
+      <h2>4. Сторонние сервисы, аналитика и реклама</h2>
       <ul>
         <li>В Miodi <strong>полностью отсутствует реклама</strong> (нет Google AdMob, Unity Ads и т.д.).</li>
-        <li>В Miodi <strong>нет трекеров аналитики</strong> (нет Firebase Analytics, Facebook SDK, AppsFlyer).</li>
+        <li><strong>Анонимная продуктовая аналитика:</strong> Для анализа стабильности приложения, устранения возможных сбоев и понимания востребованности функций (посещаемость модулей, использование стикеров, общее количество задач и привычек) используется Google Analytics for Firebase. Все собираемые метрики являются <strong>строго обезличенными и агрегированными</strong>. Мы <strong>никогда не собираем, не просматриваем и не передаем</strong> названия ваших задач, привычек или заметок, финансовые суммы, фотографии, а также данные женского календаря и здоровья. Данные шифруются при передаче и не привязаны к вашей личности.</li>
       </ul>
 
       <h2>5. Детская конфиденциальность (COPPA / GDPR)</h2>
@@ -467,7 +467,7 @@
         btnEn.classList.remove('active');
         btnRu.classList.add('active');
         title.innerText = 'Политика конфиденциальности';
-        meta.innerText = 'Последнее обновление: 4 октября 2026 г. • Приложение: com.miodi.app';
+        meta.innerText = 'Последнее обновление: 16 октября 2026 г. • Приложение: com.miodi.app';
         document.documentElement.lang = 'ru';
       } else {
         enContent.style.display = 'block';
@@ -475,7 +475,7 @@
         btnEn.classList.add('active');
         btnRu.classList.remove('active');
         title.innerText = 'Privacy Policy';
-        meta.innerText = 'Last updated: October 4, 2026 • Application: com.miodi.app';
+        meta.innerText = 'Last updated: October 16, 2026 • Application: com.miodi.app';
         document.documentElement.lang = 'en';
       }
     }
